@@ -25,6 +25,7 @@ public class Ex1 {
   // Tests whether someone passes the test
   public static boolean passedTest(String sc, double ca1, double ca2, double ex, double tw){
     double mark = 0.125*ca1 + 0.075*ca2 + 0.7*ex + 0.1*tw; // mark <= 100
+
     if (sc.equalsIgnoreCase("ICY")){
       return (mark >= 40);
     }
@@ -36,9 +37,16 @@ public class Ex1 {
     }
   }
     
-  }
   public static int main(String[] args) {
+    String sc1 = "MSc";
+    String sc2 = "ICY";
+    double ca1 = 50.;
+    double ca2 = 50.;
+    double ex = 50.;
+    double tw = 50.;
 
+    System.out.println(passedTest(sc1,ca1,ca2,ex,tw);
+    System.out.println(passedTest(sc2,ca1,ca2,ex,tw);
   }
 
 }
