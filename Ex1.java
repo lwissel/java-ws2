@@ -37,16 +37,15 @@ public class Ex1 {
     }
   }
     
-  public static int main(String[] args) {
+  public static void main(String[] args) {
     String sc1 = "MSc";
     String sc2 = "ICY";
-    double ca1 = 50.;
-    double ca2 = 50.;
+    double ca1 = 40.;
+    double ca2 = 40.;
     double ex = 50.;
-    double tw = 50.;
+    double tw = 40.;
 
-    System.out.println(passedTest(sc1,ca1,ca2,ex,tw);
-    System.out.println(passedTest(sc2,ca1,ca2,ex,tw);
+    System.out.println(passedTest(sc1,ca1,ca2,ex,tw)); // not passed
+    System.out.println(passedTest(sc2,ca1,ca2,ex,tw)); // passed
   }
-
 }
