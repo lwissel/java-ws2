@@ -10,8 +10,19 @@
  */
 
 public class Ex4 {
-  public static void main(Sring[] args) {
+  public static void main(String[] args) {
 
+  }
+  
+  // check whether a given array is sorted (increasing string length)
+  public static boolean isSorted(String[] s) {
+    boolean res = false;
+    for(int i = 0; i < s.length-1; i++) {
+      if (s[i].length() <= s[i+1].length()) {
+        res = true;
+      }
+    }
+    return res;
   }
 
   // check string array at position pos and pos+1 and swap them if necessary
@@ -20,7 +31,7 @@ public class Ex4 {
     String tmp;
 
     if (pos >= s.length) { return s; }
-    if (s[pos].length() > s.[pos+1].length()) {
+    if (s[pos].length() > s[pos+1].length()) {
       tmp = s[pos];
       s[pos] = s[pos+1];
       s[pos+1] = tmp;
