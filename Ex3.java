@@ -31,18 +31,22 @@ public class Ex3 {
     // default value is FALSE for every element
     boolean[] prime = new boolean[n+1]; // we start with 0;
 
-    // algorithm
-    for (int i = 2; i < prime.length; i++) { prime[i] = true; } // set whole array to true except for 0 and 1
-
+    // set whole array to true except for 0 and 1
+    for (int i = 2; i < prime.length; i++) { prime[i] = true; }
+	
+	// algorithm
+	//
     // main loop to check for multiples of each next element
     for (int q = 2; q*q <= n; q++) {
       // but only calculate if the number is not already multiple = set to false
       if (prime[q] == true) {
-        findPrime(q,prime);
+        setMultiplesToFalse(q,prime);
         System.out.println();
         for (boolean a: prime) { System.out.print(a + " "); }
       }
     }
+	//
+	// end algorithm
 
     // Print the prime numbers
     System.out.println();
@@ -56,7 +60,8 @@ public class Ex3 {
   // find multiples of number in boolean array and set element to false if the
   // corresponding index is multiple because then the number can't be prime
   // we start from m+1 wich is the next element.
-  public static boolean[] findPrime(int m, boolean[] array) {
+  // returns array where multiples (equivalent to array index) of m are set to false
+  public static boolean[] setMultiplesToFalse(int m, boolean[] array) {
     for (int i = m+1; i < array.length; i++) {
       if (i % m == 0) {
         array[i] = false;
