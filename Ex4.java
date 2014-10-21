@@ -11,15 +11,43 @@
 
 public class Ex4 {
   public static void main(String[] args) {
+    String test[] = {"Java", "the", "array", "a", "softwareWorkshop", "to"};
 
+    // print the array before the loop
+    for (String s: test) { System.out.print(s + " "); }
+    System.out.println();
+    
+    // call the algorithm
+    bubbleSort(test);
+
+    // print the array after the loop
+    for (String s: test) { System.out.print(s + " "); }
+    System.out.println();
+  }
+
+  // sorting algorithm
+  public static String[] bubbleSort(String[] toSort) {
+    int i = 0;
+    while (!isSorted(toSort)) {
+      checkAndSwap(i, toSort);
+      i++;
+      if (i == toSort.length-1) {
+        i = 0;
+      }
+    }
+    return toSort;
   }
   
   // check whether a given array is sorted (increasing string length)
   public static boolean isSorted(String[] s) {
     boolean res = false;
+
     for(int i = 0; i < s.length-1; i++) {
       if (s[i].length() <= s[i+1].length()) {
         res = true;
+      }
+      else {
+        return false;
       }
     }
     return res;
@@ -30,7 +58,7 @@ public class Ex4 {
   public static String[] checkAndSwap(int pos, String[] s) {
     String tmp;
 
-    if (pos >= s.length) { return s; }
+    // bubble sort
     if (s[pos].length() > s[pos+1].length()) {
       tmp = s[pos];
       s[pos] = s[pos+1];
