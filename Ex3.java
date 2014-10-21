@@ -37,6 +37,7 @@ public class Ex3 {
 	// algorithm
 	//
     // main loop to check for multiples of each next element
+	// stop as soon as we would double check multiples (q*q > n).
     for (int q = 2; q*q <= n; q++) {
       // but only calculate if the number is not already multiple = set to false
       if (prime[q] == true) {
