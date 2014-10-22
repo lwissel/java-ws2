@@ -14,8 +14,13 @@ public class Ex5 {
   }
 
   // method to check the rows to have each number only once
+  // @param matrix is the sudoku input matrix, row selects which row to test
   // @return true if each only once
-  public static boolean checkRow(int[][] matrix) {
+  public static boolean checkRow(int[][] matrix, int row) {
+    int a, b, c, d, e, f, g, h, i = 0;
+
+    for(int j = 0; j < matrix[row].length; j++) {
+    }
   }
 
   // method to check the columns to have each number only once
