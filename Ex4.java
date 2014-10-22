@@ -27,6 +27,9 @@ public class Ex4 {
 
   // sorting algorithm
   public static String[] bubbleSort(String[] toSort) {
+    if (toSort.length == 0) {
+      return toSort;
+    }
     int i = 0;
     while (!isSorted(toSort)) {
       checkAndSwap(i, toSort);
