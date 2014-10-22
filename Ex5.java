@@ -5,6 +5,10 @@
  * the numbers 1-9 are only allowed to appear exactly once in each row, column
  * and 3x3 subblock matrix of the 9x9 main sudoku matrix
  *
+ * it is not nice but it works
+ * better to replace the switch statements by proper methods calculating the
+ * next position
+ *
  * @author  Lennart Wissel
  * @version 22.10.2014
  */
@@ -16,13 +20,15 @@ public class Ex5 {
             { 8, 9, 1, 2, 3, 4, 5, 6, 7 }, { 3, 4, 5, 6, 7, 8, 9, 1, 2 },
             { 6, 7, 8, 9, 1, 2, 3, 4, 5 }, { 9, 1, 2, 3, 4, 5, 6, 7, 8 } };
 
-    for(int row=0; row <9; row++){System.out.print(checkRow(input,row)+" ");}
-    System.out.println();
 
-    for(int col=0; col <9; col++){System.out.print(checkCol(input,col)+" ");}
-
-    System.out.println();
-    for(int sq=0; sq<9; sq++){System.out.print(checkSquare(input,sq)+" ");}
+    //run and print the resulting table for convienience
+    boolean[][] res = checkSudoku(input);
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 9; j++) {
+            System.out.print(res[i][j] + " ");
+        }
+        System.out.print("\n");
+    }
   }
 
   /** method to check the rows to have each number only once
@@ -143,10 +149,25 @@ public class Ex5 {
       return true;
   }
 
-  // method to obtain a 3x9 result array containing whether each row or
-  // columns evaluates to true/false according to the sudoku excercise. The
-  // last row contains the same information for the subsquares.
-//  public static boolean[][] checkSudoku(int[][] matrix) {
-//    return true;
-//  }
+  /** method to obtain a 3x9 result array containing whether each row or
+   * columns evaluates to true/false according to the sudoku excercise. The
+   * last row contains the same information for the subsquares.
+   * @param matrix is the input sodoku matrix we are going to check
+   * @return is the 3x9 matrix containing the output matrix as written above
+   */
+  public static boolean[][] checkSudoku(int[][] matrix) {
+    if (matrix.length != 9 || matrix[0].length != 9) {
+      System.out.println("Not a valid Sudoku table");
+      System.exit(0);
+    }
+
+    // the result matrix has fixed size.
+    boolean[][] result = new boolean[3][9];
+
+    for(int row = 0; row < matrix.length; row++){ result[0][row] = checkRow(matrix,row); }
+    for(int col = 0; col < matrix[0].length; col++){ result[1][col] = checkCol(matrix,col); }
+    for(int sq = 0; sq < matrix.length; sq++){ result[2][sq] = checkSquare(matrix,sq); }
+
+    return result;
+  }
 }
