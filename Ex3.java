@@ -7,7 +7,7 @@
  * numbers from 2 to n in a list, then start by stroking out all multiples of
  * that number in the list. The next non-stroked number is then the next prime
  * number. Now repeat to stroke multiples of that number until you reach a
- * prime with prime^2 > n because then all multiples are already stroked out
+ * prime with prime^2 bigger n because then all multiples are already stroked out
  * and the remaining numbers are prime.
  *
  * @author:  Lennart Wissel
@@ -28,7 +28,11 @@ public class Ex3 {
     }
   }
 
-  // main sieve method to pass the given test structure..
+  /** main sieve method to pass the given test structure..
+   * @param input is the number-1 to which we want to check for primes
+   * @return array that contains at its position starting from 0 true/false if
+   * it is a prime or not
+   */
   public static boolean[] sieve(int input) {
     int n = 0; // avoid a null array
       n = input;
@@ -56,10 +60,13 @@ public class Ex3 {
     return prime;
   }
 
-  // find multiples of number in boolean array and set element to false if the
-  // corresponding index is multiple because then the number can't be prime
-  // we start from m+1 wich is the next element.
-  // returns array where multiples (equivalent to array index) of m are set to false
+  /** find multiples of number in boolean array and set element to false if the
+  * corresponding index is multiple because then the number can't be prime
+  * we start from m+1 wich is the next element.
+  * @param m this is the number where we want to check for multiples of it
+  * @param array is the array in which we set the multiples to false.
+  * @return array where multiples (equivalent to array index) of m are set to false
+  */
   public static boolean[] setMultiplesToFalse(int m, boolean[] array) {
     for (int i = m+1; i < array.length; i++) {
       if (i % m == 0) {

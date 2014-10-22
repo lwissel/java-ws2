@@ -25,7 +25,10 @@ public class Ex4 {
     System.out.println();
   }
 
-  // sorting algorithm
+  /** sorting algorithm
+   * @param toSort is the string array we want to sort
+   * @return sorted array
+   */
   public static String[] bubbleSort(String[] toSort) {
     if (toSort.length == 0 || toSort.length == 1) {
       return toSort;
@@ -41,7 +44,10 @@ public class Ex4 {
     return toSort;
   }
   
-  // check whether a given array is sorted (increasing string length)
+  /** check whether a given array is sorted (increasing string length)
+   * @param s array to check
+   * @return true/false if it is sorted with increasing length
+   */
   public static boolean isSorted(String[] s) {
     boolean res = false;
 
@@ -56,8 +62,11 @@ public class Ex4 {
     return res;
   }
 
-  // check string array at position pos and pos+1 and swap them if necessary
-  // returns the array
+  /** check string array at position pos and pos+1 and swap them if necessary
+  * @return the array with elements at given position (and next) swapped
+  * @param pos the position where we want to swap
+  * @param s the string array we operate on
+  */
   public static String[] checkAndSwap(int pos, String[] s) {
     String tmp;
 

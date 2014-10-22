@@ -22,7 +22,14 @@
 
 public class Ex1 {
 
-  // Tests whether someone passes the test
+  /** Tests whether someone passes the test
+  * @param ca1 contiAssessment1
+  * @param ca2 contiAssess2,
+  * @param ex Exam performance,
+  * @param tw Teamwork
+  * @param sc Student type
+  * @return true or false depending on whether the test is passed
+  */
   public static boolean hasPassed(double ca1, double ca2, double ex, double tw, String sc){
     double mark = 0.125*ca1 + 0.075*ca2 + 0.7*ex + 0.1*tw; // mark <= 100
 

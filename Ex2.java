@@ -10,7 +10,8 @@
  public class Ex2 {
 	/**
 	* counts the number of occurrences of a given string in a string array
-	* @input string array
+	* @param s is the string to check
+  * @param sArray is the array to check the string against
 	* @return integer corresponding to number of occurrences
 	*/
 	public static int countOccurences(String s, String[] sArray){
