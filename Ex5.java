@@ -18,7 +18,11 @@ public class Ex5 {
 
     for(int row=0; row <9; row++){System.out.print(checkRow(input,row)+" ");}
     System.out.println();
+
     for(int col=0; col <9; col++){System.out.print(checkCol(input,col)+" ");}
+
+    System.out.println();
+    for(int sq=0; sq<9; sq++){System.out.print(checkSquare(input,sq)+" ");}
   }
 
   /** method to check the rows to have each number only once
@@ -93,13 +97,30 @@ public class Ex5 {
    */
   public static boolean checkSquare(int[][] matrix, int sq) {
 
-    // loop through one 3x3 array and count occurences
-    int[] a = new int[9];
+    // parameter sq defines the submatrix
+    // sm = start row, sn = startcolumn, em = end row, en = end colum
+    // coordinates
+    int sm, sn, em, en; 
+    switch (sq) {
+      case 0: sm = 0; sn = 0; em = 2; en = 2; break;
+      case 1: sm = 0; sn = 3; em = 2; en = 5; break;
+      case 2: sm = 0; sn = 6; em = 2; en = 8; break;
+      case 3: sm = 3; sn = 0; em = 5; en = 2; break;
+      case 4: sm = 3; sn = 3; em = 5; en = 5; break;
+      case 5: sm = 3; sn = 6; em = 5; en = 8; break;
+      case 6: sm = 6; sn = 0; em = 8; en = 2; break;
+      case 7: sm = 6; sn = 3; em = 8; en = 5; break;
+      case 8: sm = 6; sn = 6; em = 8; en = 8; break;
+      default: sm = sn = em = en = 0; break;
+    }
 
     // count the occurences of the numbers 1-9 represented by array a
-    for(int j = 0; j < matrix.length; j++) {
-      for (int m = 0; m < ; m++) {
-        switch (matrix[row][j]) {
+    // in 3x3 matrix
+    int[] a = new int[9];
+
+    for(int m = sm; m <= em ; m++) {
+      for (int n = sn; n <= en; n++) {
+        switch (matrix[m][n]) {
           case 1: a[0]++; break;
           case 2: a[1]++; break;
           case 3: a[2]++; break;
@@ -112,6 +133,14 @@ public class Ex5 {
         }
       }
     }
+
+    // check whether all values are == 1
+    for(int j = 0; j < a.length; j++) {
+      if (a[j] != 1) {
+        return false;
+      }
+    }
+      return true;
   }
 
   // method to obtain a 3x9 result array containing whether each row or
