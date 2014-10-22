@@ -16,20 +16,32 @@
 
 public class Ex3 {
   public static void main(String[] args){
-    // use the first argument to define the limit n
+
+    boolean[] prime = sieve(14);
+
+    // Print the prime numbers
+    System.out.println();
+    for (int b = 0; b < prime.length; b++) {
+      if (prime[b]) {
+        System.out.print(b + " ");
+      }
+    }
+  }
+
+  // main sieve method to pass the given test structure..
+  public static boolean[] sieve(int input) {
     int n = 0; // avoid a null array
-    if (args.length == 0) {
-      System.out.println("Please call the program with a parameter of int n.");
-      System.out.println("Usage: java program n.");
+    if (input < 2) {
+      System.out.println("Please call the program with a parameter of int n >= 2.");
       System.exit(0);
     } else {
-      n = Integer.parseInt(args[0]);
+      n = input;
     }
 
     // prime array representing all the numbers from 0 up to n
     // after the algorithm: true = prime, false  = not prime
     // default value is FALSE for every element
-    boolean[] prime = new boolean[n+1]; // we start with 0;
+    boolean[] prime = new boolean[n]; // we start with 0;
 
     // set whole array to true except for 0 and 1
     for (int i = 2; i < prime.length; i++) { prime[i] = true; }
@@ -46,16 +58,7 @@ public class Ex3 {
         for (boolean a: prime) { System.out.print(a + " "); }
       }
     }
-	//
-	// end algorithm
-
-    // Print the prime numbers
-    System.out.println();
-    for (int b = 0; b < prime.length; b++) {
-      if (prime[b]) {
-        System.out.print(b + " ");
-      }
-    }
+    return prime;
   }
 
   // find multiples of number in boolean array and set element to false if the
