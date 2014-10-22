@@ -31,12 +31,7 @@ public class Ex3 {
   // main sieve method to pass the given test structure..
   public static boolean[] sieve(int input) {
     int n = 0; // avoid a null array
-    if (input < 2) {
-      System.out.println("Please call the program with a parameter of int n >= 2.");
-      System.exit(0);
-    } else {
       n = input;
-    }
 
     // prime array representing all the numbers from 0 up to n
     // after the algorithm: true = prime, false  = not prime
