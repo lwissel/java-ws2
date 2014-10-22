@@ -27,7 +27,7 @@ public class Ex4 {
 
   // sorting algorithm
   public static String[] bubbleSort(String[] toSort) {
-    if (toSort.length == 0) {
+    if (toSort.length == 0 || toSort.length == 1) {
       return toSort;
     }
     int i = 0;
