@@ -17,6 +17,8 @@ public class Ex5 {
             { 6, 7, 8, 9, 1, 2, 3, 4, 5 }, { 9, 1, 2, 3, 4, 5, 6, 7, 8 } };
 
     for(int row=0; row <9; row++){System.out.print(checkRow(input,row)+" ");}
+    System.out.println();
+    for(int col=0; col <9; col++){System.out.print(checkCol(input,col)+" ");}
   }
 
   /** method to check the rows to have each number only once
@@ -28,7 +30,7 @@ public class Ex5 {
     int[] a = new int[9];
 
     // count the occurences of the numbers 1-9 represented by array a
-    for(int j = 0; j < matrix[row].length; j++) {
+    for(int j = 0; j < matrix.length; j++) {
       switch (matrix[row][j]) {
         case 1: a[0]++; break;
         case 2: a[1]++; break;
@@ -56,18 +58,61 @@ public class Ex5 {
    * @param matrix is the matrix we check the column of
    * @param col is the column we are checking
    */
-//  public static boolean checkColumn(int[][] matrix, int col) {
-//    return true;
-//  }
+  public static boolean checkCol(int[][] matrix, int col) {
+    int[] a = new int[9];
+
+    // count the occurences of the numbers 1-9 represented by array a
+    // matrix[0] refers to the column length in this case
+    for(int j = 0; j < matrix[0].length; j++) {
+      switch (matrix[j][col]) {
+        case 1: a[0]++; break;
+        case 2: a[1]++; break;
+        case 3: a[2]++; break;
+        case 4: a[3]++; break;
+        case 5: a[4]++; break;
+        case 6: a[5]++; break;
+        case 7: a[6]++; break;
+        case 8: a[7]++; break;
+        case 9: a[8]++; break;
+      }
+    }
+
+    // check whether all values are == 1
+    for(int j = 0; j < a.length; j++) {
+      if (a[j] != 1) {
+        return false;
+      }
+    }
+      return true;
+  }
 
   /** method to check the subblock matrices for the occurence of each number
    * @return true if each only once
    * @param matrix is the matrix we check the subsquares of
    * @param sq is the numbered square we check
    */
-//  public static boolean checkSquare(int[][] matrix, int sq) {
-//    return true;
-//  }
+  public static boolean checkSquare(int[][] matrix, int sq) {
+
+    // loop through one 3x3 array and count occurences
+    int[] a = new int[9];
+
+    // count the occurences of the numbers 1-9 represented by array a
+    for(int j = 0; j < matrix.length; j++) {
+      for (int m = 0; m < ; m++) {
+        switch (matrix[row][j]) {
+          case 1: a[0]++; break;
+          case 2: a[1]++; break;
+          case 3: a[2]++; break;
+          case 4: a[3]++; break;
+          case 5: a[4]++; break;
+          case 6: a[5]++; break;
+          case 7: a[6]++; break;
+          case 8: a[7]++; break;
+          case 9: a[8]++; break;
+        }
+      }
+    }
+  }
 
   // method to obtain a 3x9 result array containing whether each row or
   // columns evaluates to true/false according to the sudoku excercise. The
